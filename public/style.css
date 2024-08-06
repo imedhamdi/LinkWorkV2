@@ -845,3 +845,59 @@ footer {
   background-color: #0056b3;
   transform: scale(1.02);
 }
+
+
+
+/*******************About ******************/
+
+/* Styles généraux */
+.about-container {
+  font-family: sans-serif;
+  line-height: 1.6;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Styles pour les listes et les puces de la section About */
+.about-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-container li {
+  margin-bottom: 10px;
+}
+
+.about-container li::before {
+  content: "\2022";
+  color: #007bff; 
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+      padding: 10px;
+  }
+
+  .about-container .section{
+      margin-bottom: 20px;
+      margin-left: 20px;
+  }
+}

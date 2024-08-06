@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'inscrire - Link&Work</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="routes/register.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+          <a href="index.html" class="logo">Link&Work</a>
+          <input type="checkbox" id="menu-toggle">
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+          <nav>
+            <ul id="menu">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="offres.html" class="active">Offres</a></li>
+              <li><a href="#">Entreprises</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="seConnecter.html" class="login-btn">Se connecter</a></li>
+              <li><a href="sinscrire.html" class="signup-btn">S'inscrire</a></li>
+              <li><button id="logout-btn" style="display:none;" onclick="logout()">Se déconnecter</button></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <section id="signup">
+        <div class="container">
+            <div class="signup-form">
+                <h2>S'inscrire</h2>
+                <form enctype="multipart/form-data" id="registrationForm">
+                    <div class="form-group">
+                        <label for="first_name">Prénom</label>
+                        <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Nom</label>
+                        <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" required   autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmer le mot de passe</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword"   required
+                            autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="situation_actuelle">Situation actuelle:</label>
+                        <select id="situation_actuelle" name="situation_actuelle">
+                            <option value="en_poste">En poste</option>
+                            <option value="sans_emploi">Sans emploi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="disponibilite">Disponibilité pour un futur job:</label>
+                        <select id="disponibilite" name="disponibilite">
+                            <option value="immediate">Immédiate</option>
+                            <option value="a_convenir">À convenir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Niveau d’expérience:</label>
+                        <select id="experience" name="experience">
+                            <option value="debutant">Débutant</option>
+                            <option value="2-3_ans">2-3 ans</option>
+                            <option value="4-10_ans">4-10 ans</option>
+                            <option value="10_ans_et_plus">10 ans et plus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="qualification">Niveau de qualification:</label>
+                        <select id="qualification" name="qualification">
+                            <option value="BEP/CAP">BEP/CAP - Employé/Opérateur/Ouvrier Spé</option>
+                            <option value="Bac">Bac - Technicien/Employé</option>
+                            <option value="Bac+2">Bac +2 - Agent de maîtrise</option>
+                            <option value="Bac+3/4">Bac +3/4 - Ingénieur/Cadre</option>
+                            <option value="Bac+5">Bac +5 - Cadre dirigeant</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume">CV (PDF)</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf">
+                    </div>
+                    <button type="submit" class="cta-btn">S'inscrire</button>
+                </form>
+                <div class="error-message" id="error-message"></div>
+                <div id="response-message"></div>
+                <p class="login-prompt">Vous avez déjà un compte ? <a href="seConnecter.html">Se connecter</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pour les Candidats</h3>
+                    <ul>
+                        <li><a href="#">Rechercher des offres</a></li>
+                        <li><a href="#">Déposer un CV</a></li>
+                        <li><a href="#">Conseils de carrière</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Pour les Entreprises</h3>
+                    <ul>
+                        <li><a href="#">Publier une offre</a></li>
+                        <li><a href="#">Trouver des candidats</a></li>
+                        <li><a href="#">Solutions RH</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <ul>
+                        <li><a href="#">À propos de nous</a></li>
+                        <li><a href="#">Contactez-nous</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2024 Work&Link</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

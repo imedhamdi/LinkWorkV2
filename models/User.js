@@ -49,13 +49,23 @@ class User {
     return new User(createdUser);
   }
 
-  // Récupérer un utilisateur par son email
   static async findByEmail(email) {
     const sql = 'SELECT * FROM users WHERE email = ?';
-    const [rows] = await pool.query(sql, [email]);
-    return rows.length ? new User(rows[0]) : null;
+  
+    try {
+      const [rows] = await pool.execute(sql, [email]); // Utiliser execute pour les requêtes préparées
+  
+      if (rows.length === 0) {
+        return null; // Aucun utilisateur trouvé avec cet email
+      }
+  
+      return new User(rows[0]); // Créer une instance User avec les données
+    } catch (error) {
+      console.error('Erreur lors de la recherche de l\'utilisateur par email :', error);
+      throw error; // Relancer l'erreur pour une gestion plus haut dans le code
+    }
   }
-
+  
 
   // Récupérer un utilisateur par son ID
   static async findById(userId) {

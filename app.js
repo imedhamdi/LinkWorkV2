@@ -69,6 +69,7 @@ app.set('views', path.join(__dirname, 'views')); // Définissez le chemin vers v
 app.use('/users', usersRouter);
 app.use('/offres', jobRoutes);
 
+app.set('trust proxy', true); 
 
 // Gestion des fichiers statiques 
 app.use('/routes', express.static(path.join(__dirname, 'routes')));

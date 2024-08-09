@@ -45,7 +45,7 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 1000,
   standardHeaders: true,  // Retourne les headers RateLimit-*
-  legacyHeaders: false, // Désactive les anciens headers X-RateLimit-*
+  
 });
 app.use(limiter);
 

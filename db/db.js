@@ -2,10 +2,10 @@ const mysql = require('mysql2');
 require('dotenv').config();
 const pool = mysql.createPool({
   port:'3306',
-  host:'sql.freedb.tech',
-  user: 'freedb_imedhamdi',
-  password:'p7N5?ucZr%*QbKr',
-  database:'freedb_job_board',
+  host:'btdm9da8pq53mylxej9z-mysql.services.clever-cloud.com',
+  user: 'udvymqcdn0405qcm',
+  password:'EFjUmuagCi8J7kMcBZAg',
+  database:'btdm9da8pq53mylxej9z',
   waitForConnections: true,
   connectTimeout: 10000 ,
   queueLimit: 0

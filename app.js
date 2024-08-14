@@ -24,7 +24,7 @@ app.use(helmet({
     directives: {
       defaultSrc:
         ["'self'"], // Autoriser uniquement les ressources de votre propre domaine par défaut
-      connectSrc: ["'self'", 'http://127.0.0.1:3000'], // Autoriser les connexions à votre propre domaine et à l'API locale
+      connectSrc: ["'self'", 'https://linkworkv2.onrender.com/'], // Autoriser les connexions à votre propre domaine et à l'API locale
       // ... autres directives selon vos besoins
     }
   }

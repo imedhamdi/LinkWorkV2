@@ -20,7 +20,16 @@ app.use(express.urlencoded({ extended: true })); // Pour gérer les formulaires 
 
 // Middleware de sécurité
 app.use(cors());
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc:   
+ ["'self'"], // Autoriser uniquement les ressources de votre propre domaine par défaut
+      connectSrc: ["'self'", 'http://127.0.0.1:3000'], // Autoriser les connexions à votre propre domaine et à l'API locale
+      // ... autres directives selon vos besoins
+    }
+  }
+}));
 app.use(hpp());
 app.use(xss());
 

@@ -36,9 +36,11 @@ app.use(xss());
 
 // Configuration de CORS (plus flexible et sécurisée que les headers manuels)
 app.use(cors({
-  origin: 'https://linkworkv2.onrender.com/', // Remplacez par votre domaine spécifique en production
+  origin: 'https://linkworkv2.onrender.com', // Remplacez par votre domaine spécifique en production
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true // Allow   
+
 
 }));
 

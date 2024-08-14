@@ -9,7 +9,6 @@ const cors = require('cors');;
 const usersRouter = require('./routes/users');
 const jobRoutes = require('./routes/jobs')
 const app = express();
-const pool = require('./db/db');
 const bodyParser = require('body-parser');
 
 
@@ -23,8 +22,8 @@ app.use(cors());
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      defaultSrc:   
- ["'self'"], // Autoriser uniquement les ressources de votre propre domaine par défaut
+      defaultSrc:
+        ["'self'"], // Autoriser uniquement les ressources de votre propre domaine par défaut
       connectSrc: ["'self'", 'http://127.0.0.1:3000'], // Autoriser les connexions à votre propre domaine et à l'API locale
       // ... autres directives selon vos besoins
     }
@@ -37,7 +36,7 @@ app.use(xss());
 
 // Configuration de CORS (plus flexible et sécurisée que les headers manuels)
 app.use(cors({
-  origin: '*', // Remplacez par votre domaine spécifique en production
+  origin: 'https://linkworkv2.onrender.com/', // Remplacez par votre domaine spécifique en production
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 

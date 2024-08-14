@@ -359,6 +359,12 @@ main {
     padding: 80px 0;
 }
 
+.job-listings .container { /* Cibler le container spécifique à cette section */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive */
+  gap: 30px;
+}
+
 #job-listings h1 {
     text-align: center;
     margin-bottom: 3rem;
@@ -367,19 +373,12 @@ main {
     /* Taille de police en rem pour flexibilité */
 }
 
-.job-listing {
-    background-color: #fff;
-    padding: 2rem;
-    /* 2rem au lieu de 30px */
-    border-radius: 0.5rem;
-    /* 0.5rem pour un rayon plus cohérent */
-    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
-    /* Valeurs en rem */
-    margin-bottom: 5rem;
-    /* 2rem au lieu de 30px */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-left: 15rem;
-    margin-right: 15rem;
+.job-listing { /* Style pour chaque offre d'emploi */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .job-listing:hover {
@@ -1120,27 +1119,19 @@ main {
   padding: 80px 0;
 }
 
+
 #job-listings h1 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   /* 3rem au lieu de 50px pour plus de cohérence */
   font-size: 2.5rem;
   /* Taille de police en rem pour flexibilité */
 }
 
 .job-listing {
-  background-color: #fff;
   padding: 2rem;
-  /* 2rem au lieu de 30px */
-  border-radius: 0.5rem;
-  /* 0.5rem pour un rayon plus cohérent */
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
-  /* Valeurs en rem */
-  margin-bottom: 5rem;
-  /* 2rem au lieu de 30px */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-left: 15rem;
-  margin-right: 15rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
 }
 
 .job-listing:hover {
@@ -1267,17 +1258,17 @@ main {
   padding: 8px;
 }
 /* Styles pour la section des offres d'emploi */
-#featured-jobs {
-  padding: 80px 0;
+#job-listings {
+  padding: 30px 0;
 }
 
-.job-listings-all {
+.job-listings .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive */
   gap: 30px;
 }
 
-.job-listing-all {
+.job-listing { 
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
@@ -1285,31 +1276,74 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.job-listing-all:hover {
+.job-listing:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.job-listing-all h3 {
-  margin-top: 0;
+.job-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.company,
-.location {
-  color: #666;
-  margin-bottom: 10px;
+.job-meta {
+  margin-top: 10px;
+}
 
+.job-meta p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.job-meta i {
+  margin-right: 5px;
 }
 
 .apply-btn {
   display: inline-block;
   background-color: #007bff;
   color: white;
-  padding: 8px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 
+.apply-btn:hover {
+  background-color:   
+ #0056b3;
+}
+
+.description {
+  line-height: 1.6;
+}
+
+/* Media Queries pour le responsive design */
+@media (max-width: 768px) { 
+  .job-listings .container {
+    grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+  }
+
+  .job-header { 
+    flex-direction: column;  /* Empiler le titre et les métadonnées verticalement */
+    align-items: center;    /* Centrer les éléments horizontalement */
+    justify-content: center;
+  }
+
+  .job-header h2 {
+    margin-top: 10px;      /* Ajouter un espace entre le titre et les métadonnées */
+    text-align: center;
+  }
+  .job-meta {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center;     /* Center items horizontally */
+  }
+  .apply-btn {
+    /* ... other styles ... */
+    width: auto;           /* Allow the button to take its natural width */
+    margin: 0 auto;        /* Center the button horizontally */
+  }
 }

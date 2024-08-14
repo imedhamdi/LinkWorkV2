@@ -205,7 +205,16 @@ router.post('/forgot-password', async (req, res) => {
             from: 'lesveneres@gmail.com',
             to: email,
             subject: 'Réinitialisation de votre mot de passe',
-            text: `Cliquez sur ce lien pour réinitialiser votre mot de passe : ${resetLink}`,
+            html: `
+            <p>Bonjour,</p>
+            <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
+            <p>Veuillez cliquer sur le bouton ci-dessous pour procéder à la réinitialisation :</p>
+            <a href="${resetLink}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">   
+
+                Réinitialiser mon mot de passe
+            </a>
+            <p>Si vous n'avez pas fait cette demande, vous pouvez ignorer cet e-mail.</p>
+        `,
         });
 
         res.json({ message: 'Un email de réinitialisation a été envoyé' });

@@ -198,11 +198,11 @@ router.post('/forgot-password', async (req, res) => {
         }
 
         const resetToken = await User.generateResetToken(email);
-        const resetLink = `http://127.0.0.1:3000/users/reset-password/${resetToken}`; // Lien de réinitialisation
+        const resetLink = `https://linkworkv2.onrender.com/users/reset-password/${resetToken}`; // Lien de réinitialisation
 
         // Envoi de l'e-mail 
         await transporter.sendMail({
-            from: 'votre_email@gmail.com',
+            from: 'imedhamdi007@hotmail.fr',
             to: email,
             subject: 'Réinitialisation de votre mot de passe',
             text: `Cliquez sur ce lien pour réinitialiser votre mot de passe : ${resetLink}`,

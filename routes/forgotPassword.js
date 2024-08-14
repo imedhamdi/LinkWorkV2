@@ -10,7 +10,7 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
     const responseMessage = document.getElementById('response-message');
 
     try {
-        const response = await fetch('https://linkworkv2.onrender.com/users/forgot-password', {
+        const response = await fetch('/users/forgot-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

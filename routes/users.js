@@ -202,7 +202,7 @@ router.post('/forgot-password', async (req, res) => {
 
         // Envoi de l'e-mail 
         await transporter.sendMail({
-            from: 'imedhamdi007@hotmail.fr',
+            from: 'lesveneres@gmail.com',
             to: email,
             subject: 'Réinitialisation de votre mot de passe',
             text: `Cliquez sur ce lien pour réinitialiser votre mot de passe : ${resetLink}`,

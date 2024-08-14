@@ -1,5 +1,5 @@
 // Assurez-vous que cette URL correspond à votre route backend
-const apiUrl = 'http://127.0.0.1:3000/offres'; // Ou l'URL appropriée si différente
+const apiUrl = 'https://linkworkv2.onrender.com/offres'; // Ou l'URL appropriée si différente
 
 // Sélectionnez l'élément où vous souhaitez afficher les offres
 const jobListingsContainer = document.querySelector('#job-listings .container'); // Ou l'élément approprié

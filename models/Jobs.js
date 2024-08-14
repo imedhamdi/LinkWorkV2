@@ -21,6 +21,8 @@ class Offre {
     this.secteur_activite_Libelle = data.secteur_activite_Libelle;
   }
 
+
+
   // Méthode pour récupérer toutes les offres
   static async getAll() {
     try {

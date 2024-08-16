@@ -16,6 +16,7 @@ async function fetchAndDisplayJobs(page = 1) {
     }
 
     const data = await response.json();
+    console.log(data)
     const offres = data.offres;
     totalPages = Math.ceil(data.totalOffres / 10); 
 

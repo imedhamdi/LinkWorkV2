@@ -21,7 +21,29 @@ class Offre {
     this.secteur_activite_Libelle = data.secteur_activite_Libelle;
   }
 
-
+  static async getPaginated(page, limit) {
+    try {
+      const offset = (page - 1) * limit; 
+  
+      const query = `
+        SELECT * FROM offres
+        LIMIT ? OFFSET ?
+      `;
+      const [rows] = await pool.query(query, [limit, offset]);
+  
+      // Récupérez également le nombre total d'offres pour le calcul du nombre de pages
+      const [totalRows] = await pool.query('SELECT COUNT(*) as total FROM offres');
+      const totalOffres = totalRows[0].total;
+  
+      return {
+        offres: rows,
+        totalOffres
+      };
+    } catch (error) {
+      console.error('Erreur lors de la récupération des offres paginées :', error);
+      throw error;
+    }
+  }
 
   // Méthode pour récupérer toutes les offres
   static async getAll() {

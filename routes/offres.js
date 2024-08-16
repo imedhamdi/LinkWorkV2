@@ -1,7 +1,5 @@
-// Assurez-vous que cette URL correspond à votre route backend
 const apiUrl = 'https://linkworkv2.onrender.com/offres'; 
 
-// Sélectionnez l'élément où vous souhaitez afficher les offres et la pagination
 const jobListingsContainer = document.querySelector('#job-listings .container'); 
 const paginationContainer = document.querySelector('#pagination'); 
 
@@ -15,20 +13,15 @@ async function fetchAndDisplayJobs(page = 1) {
       throw new Error('Erreur lors de la récupération des offres');
     }
 
-    const offres = await response.json(); // 'offres' est directement le tableau d'offres
+    const { offres, totalOffres } = await response.json(); // 'offres' et 'totalOffres' sont extraits du JSON
+    totalPages = Math.ceil(totalOffres / 10); 
 
-    // Récupérez le nombre total d'offres depuis l'en-tête 'X-Total-Count'
-    const totalCount = parseInt(response.headers.get('X-Total-Count'));
-    totalPages = Math.ceil(totalCount / 10); 
-
-    // Effacez le contenu existant avant d'ajouter les nouvelles offres
     jobListingsContainer.innerHTML = '';
 
     if (offres.length === 0) {
       jobListingsContainer.innerHTML = '<p>Aucune offre trouvée pour cette page.</p>';
     } else {
       offres.forEach(offre => {
-        // Créez les éléments HTML pour chaque offre
         const jobListing = document.createElement('div');
         jobListing.classList.add('job-listing');
 
@@ -54,11 +47,10 @@ async function fetchAndDisplayJobs(page = 1) {
         salary.innerHTML = `<i class="fas fa-money-bill-wave"></i> ${offre.salaire_libelle}`;
 
         const detailsButton = document.createElement('a');
-        detailsButton.href = '#'; // Remplacez par l'URL de la page de détails de l'offre
+        detailsButton.href = '#';
         detailsButton.classList.add('apply-btn');
         detailsButton.textContent = 'Détails';
 
-        // Ajoutez les éléments à la structure
         jobMeta.appendChild(company);
         jobMeta.appendChild(location);
         jobMeta.appendChild(salary);
@@ -78,20 +70,16 @@ async function fetchAndDisplayJobs(page = 1) {
       });
     }
 
-    // Ajoutez la logique pour afficher les boutons de pagination
     displayPagination(); 
   } catch (error) {
     console.error('Erreur lors de l\'affichage des offres :', error);
-    // Gérez l'erreur de manière appropriée, par exemple :
     jobListingsContainer.innerHTML = '<p>Une erreur s\'est produite lors du chargement des offres. Veuillez réessayer plus tard.</p>';
   }
 }
 
 function displayPagination() {
-  // Effacez la pagination existante
   paginationContainer.innerHTML = '';
 
-  // Ajoutez les boutons de pagination
   for (let i = 1; i <= totalPages; i++) {
     const pageButton = document.createElement('button');
     pageButton.textContent = i;
@@ -108,6 +96,4 @@ function displayPagination() {
   }
 }
 
-// Appelez la fonction pour la première fois au chargement de la page
-// Assurez-vous que le DOM est complètement chargé avant d'appeler cette fonction
 document.addEventListener('DOMContentLoaded', fetchAndDisplayJobs);

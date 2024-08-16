@@ -47,10 +47,10 @@ async function fetchAndDisplayJobs(page = 1) {
         salary.innerHTML = `<i class="fas fa-money-bill-wave"></i> ${offre.salaire_libelle}`;
 
         const detailsButton = document.createElement('a');
-        detailsButton.href = `offre.html?id=${offre.id}`; // ID de l'offre ajouté à l'URL
+        detailsButton.href = `offre.html?id=${offre.id_offre}`; // ID de l'offre ajouté à l'URL
         detailsButton.classList.add('apply-btn');
         detailsButton.textContent = 'Détails';
-        
+
         jobMeta.appendChild(company);
         jobMeta.appendChild(location);
         jobMeta.appendChild(salary);

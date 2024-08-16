@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <strong>Entreprise:</strong> ${offre.entreprise_nom}<br>
                     <strong>Lieu:</strong> ${offre.lieu_travail_libelle}<br>
                     <strong>Salaire:</strong> ${offre.salaire_libelle}<br>
-                    <strong>Date de publication:</strong> ${offre.date_publication}<br>
+                    <strong>Date de publication:</strong> ${offre.date_creation}<br>
                 `;
 
                 const jobDescription = document.createElement('div');

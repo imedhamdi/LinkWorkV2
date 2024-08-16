@@ -45,15 +45,15 @@ class Offre {
     }
   }
 
-  // Méthode pour récupérer toutes les offres
-  static async getAll() {
-    try {
-      const [rows] = await pool.query('SELECT * FROM offres');
-      return rows;
-    } catch (error) {
-      console.error('Erreur lors de la récupération des offres :', error);
-      throw error;
-    }
-  }
+  // // Méthode pour récupérer toutes les offres
+  // static async getAll() {
+  //   try {
+  //     const [rows] = await pool.query('SELECT * FROM offres');
+  //     return rows;
+  //   } catch (error) {
+  //     console.error('Erreur lors de la récupération des offres :', error);
+  //     throw error;
+  //   }
+  // }
 }
 module.exports = Offre;

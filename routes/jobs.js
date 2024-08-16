@@ -10,16 +10,16 @@ const Offre = require('../models/Jobs');
 
 
 
-router.get('/', async (req, res) => {
-    try {
-      const offresData = await Offre.getAll();
-      const offres = offresData.map(data => new Offre(data));
-      res.json(offres);
-    } catch (error) {
-      console.error('Erreur lors de la récupération des offres :', error);
-      res.status(500).json({ message: 'Erreur serveur' });
-    }
-  });
+// router.get('/', async (req, res) => {
+//     try {
+//       const offresData = await Offre.getAll();
+//       const offres = offresData.map(data => new Offre(data));
+//       res.json(offres);
+//     } catch (error) {
+//       console.error('Erreur lors de la récupération des offres :', error);
+//       res.status(500).json({ message: 'Erreur serveur' });
+//     }
+//   });
   router.get('/', async (req, res) => {
     try {
       const page = parseInt(req.query.page) || 1; // Page par défaut : 1

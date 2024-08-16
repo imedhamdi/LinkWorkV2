@@ -41,6 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 jobDescription.appendChild(descriptionTitle);
                 jobDescription.appendChild(descriptionContent);
 
+                // Ajouter le bouton "Postuler"
+                const applyButton = document.createElement('a');
+                applyButton.href = `apply.html?id=${offreId}`; // Redirige vers une page de candidature
+                applyButton.classList.add('apply-btn');
+                applyButton.textContent = 'Postuler';
+                jobListing.appendChild(applyButton);
+
                 jobListing.appendChild(jobDetails);
                 jobListing.appendChild(jobDescription);
 

@@ -15,7 +15,7 @@ async function fetchAndDisplayJobs(page = 1) {
       throw new Error('Erreur lors de la récupération des offres');
     }
 
-    const offres = await response.json(); 
+    const offres = await response.json(); // 'offres' est directement le tableau d'offres
 
     // Récupérez le nombre total d'offres depuis l'en-tête 'X-Total-Count'
     const totalCount = parseInt(response.headers.get('X-Total-Count'));
@@ -82,7 +82,8 @@ async function fetchAndDisplayJobs(page = 1) {
     displayPagination(); 
   } catch (error) {
     console.error('Erreur lors de l\'affichage des offres :', error);
-    // Gérez l'erreur de manière appropriée 
+    // Gérez l'erreur de manière appropriée, par exemple :
+    jobListingsContainer.innerHTML = '<p>Une erreur s\'est produite lors du chargement des offres. Veuillez réessayer plus tard.</p>';
   }
 }
 
@@ -108,4 +109,5 @@ function displayPagination() {
 }
 
 // Appelez la fonction pour la première fois au chargement de la page
-fetchAndDisplayJobs();
+// Assurez-vous que le DOM est complètement chargé avant d'appeler cette fonction
+document.addEventListener('DOMContentLoaded', fetchAndDisplayJobs);

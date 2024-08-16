@@ -13,7 +13,7 @@ async function fetchAndDisplayJobs(page = 1) {
       throw new Error('Erreur lors de la récupération des offres');
     }
 
-    const { offres, totalOffres } = await response.json(); // 'offres' et 'totalOffres' sont extraits du JSON
+    const { offres, totalOffres } = await response.json();
     totalPages = Math.ceil(totalOffres / 10); 
 
     jobListingsContainer.innerHTML = '';
@@ -78,22 +78,41 @@ async function fetchAndDisplayJobs(page = 1) {
 }
 
 function displayPagination() {
+  // Effacez la pagination existante
   paginationContainer.innerHTML = '';
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageButton = document.createElement('button');
-    pageButton.textContent = i;
-    pageButton.addEventListener('click', () => {
-      currentPage = i;
-      fetchAndDisplayJobs(currentPage); 
-    });
-
-    if (i === currentPage) {
-      pageButton.classList.add('active');
+  // Bouton Précédent
+  const prevButton = document.createElement('button');
+  prevButton.innerHTML = '&laquo;'; // Utilisation de la flèche gauche
+  prevButton.disabled = currentPage === 1;
+  prevButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      fetchAndDisplayJobs(currentPage);
     }
+  });
 
-    paginationContainer.appendChild(pageButton);
-  }
+  paginationContainer.appendChild(prevButton);
+
+  // Numéro de page actuel
+  const currentPageDisplay = document.createElement('span');
+  currentPageDisplay.textContent = `Page ${currentPage} / ${totalPages}`;
+  currentPageDisplay.style.margin = '0 15px'; // Ajoutez un peu d'espace autour du texte
+
+  paginationContainer.appendChild(currentPageDisplay);
+
+  // Bouton Suivant
+  const nextButton = document.createElement('button');
+  nextButton.innerHTML = '&raquo;'; // Utilisation de la flèche droite
+  nextButton.disabled = currentPage === totalPages;
+  nextButton.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      fetchAndDisplayJobs(currentPage);
+    }
+  });
+
+  paginationContainer.appendChild(nextButton);
 }
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayJobs);

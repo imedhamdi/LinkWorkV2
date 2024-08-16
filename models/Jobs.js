@@ -45,15 +45,24 @@ class Offre {
     }
   }
 
-  // // Méthode pour récupérer toutes les offres
-  // static async getAll() {
-  //   try {
-  //     const [rows] = await pool.query('SELECT * FROM offres');
-  //     return rows;
-  //   } catch (error) {
-  //     console.error('Erreur lors de la récupération des offres :', error);
-  //     throw error;
-  //   }
-  // }
+
+ // Méthode pour obtenir une offre par ID
+ static async getById(id) {
+  try {
+    const query = 'SELECT * FROM offres WHERE id_offre = ?';
+    const [rows] = await pool.query(query, [id]);
+
+    if (rows.length === 0) {
+      return null; // Aucun résultat trouvé
+    }
+
+    return new Offre(rows[0]);
+  } catch (error) {
+    console.error('Erreur lors de la récupération de l\'offre par ID :', error);
+    throw error;
+  }
 }
+}
+ 
+
 module.exports = Offre;

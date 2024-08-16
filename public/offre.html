@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JobFinder - Détails de l'offre d'emploi">
+    <title>JobFinder - Détails de l'offre</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    #offer-details {
+        padding: 80px 0;
+    }
+
+    .job-listing-all {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-details {
+        flex: 1;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .job-description {
+        flex: 1;
+        border-left: 1px solid #e0e0e0;
+        padding-left: 20px;
+    }
+
+    .job-description h4 {
+        margin-top: 0;
+    }
+
+    .job-details h3 {
+        margin-top: 0;
+        color: #007bff;
+    }
+
+    .job-details p,
+    .job-description p {
+        margin: 5px 0;
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .apply-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Link&Work</a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <nav>
+                <ul id="menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="offres.html" class="active">Offres</a></li>
+                    <li><a href="seConnecter.html" class="login-btn">Se connecter</a></li>
+                    <li><a href="sinscrire.html" class="signup-btn">S'inscrire</a></li>
+                    <li><button id="logout-btn" style="display:none;" onclick="logout()">Se déconnecter</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="offer-details">
+        <div class="container">
+            <div id="offer-container"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pour les Candidats</h3>
+                    <ul>
+                        <li><a href="#">Rechercher des offres</a></li>
+                        <li><a href="#">Déposer un CV</a></li>
+                        <li><a href="#">Conseils de carrière</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Pour les Entreprises</h3>
+                    <ul>
+                        <li><a href="#">Publier une offre</a></li>
+                        <li><a href="#">Trouver des candidats</a></li>
+                        <li><a href="#">Solutions RH</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <ul>
+                        <li><a href="#">À propos de nous</a></li>
+                        <li><a href="#">Contactez-nous</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2024 Work&Link</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const apiUrl = 'https://linkworkv2.onrender.com/offres';
+            const params = new URLSearchParams(window.location.search);
+            const offreId = params.get('id');
+            const offerContainer = document.getElementById('offer-container');
+
+            if (offreId) {
+                fetch(`${apiUrl}/${offreId}`)
+                    .then(response => response.json())
+                    .then(offre => {
+                        const jobListing = document.createElement('div');
+                        jobListing.classList.add('job-listing-all');
+
+                        const jobDetails = document.createElement('div');
+                        jobDetails.classList.add('job-details');
+
+                        const jobTitle = document.createElement('h3');
+                        jobTitle.textContent = offre.intitule;
+
+                        const jobMeta = document.createElement('p');
+                        jobMeta.innerHTML = `
+                            <strong>Type de contrat:</strong> ${offre.type_contrat}<br>
+                            <strong>Entreprise:</strong> ${offre.entreprise_nom}<br>
+                            <strong>Lieu:</strong> ${offre.lieu_travail_libelle}<br>
+                            <strong>Salaire:</strong> ${offre.salaire_libelle}<br>
+                            <strong>Date de publication:</strong> ${offre.date_publication}<br>
+                        `;
+
+                        const jobDescription = document.createElement('div');
+                        jobDescription.classList.add('job-description');
+
+                        const descriptionTitle = document.createElement('h4');
+                        descriptionTitle.textContent = 'Description';
+
+                        const descriptionContent = document.createElement('p');
+                        descriptionContent.textContent = offre.description;
+
+                        jobDetails.appendChild(jobTitle);
+                        jobDetails.appendChild(jobMeta);
+
+                        jobDescription.appendChild(descriptionTitle);
+                        jobDescription.appendChild(descriptionContent);
+
+                        jobListing.appendChild(jobDetails);
+                        jobListing.appendChild(jobDescription);
+
+                        offerContainer.appendChild(jobListing);
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors du chargement de l\'offre:', error);
+                        offerContainer.innerHTML = '<p>Une erreur est survenue lors du chargement de l\'offre.</p>';
+                    });
+            } else {
+                offerContainer.innerHTML = '<p>Aucune offre sélectionnée.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>

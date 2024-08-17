@@ -1,379 +1,215 @@
 /* Styles généraux */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    line-height: 1.6;
-    color: #333;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Styles pour l'entête (header) */
 header {
-    background-color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative; /* Pour positionner le menu hamburger */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  /* Pour positionner le menu hamburger */
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #007bff;
-    text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 nav li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #007bff;
+  color: #007bff;
 }
 
 .cta-btn,
 .login-btn,
 .signup-btn,
 #logout-btn {
-    padding: 8px 15px;
-    border-radius: 5px;
+  padding: 8px 15px;
+  border-radius: 5px;
 }
 
 .cta-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
 }
 
 .login-btn {
-    background-color: transparent;
-    color: #007bff;
-    border: 2px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
 }
 
 .signup-btn,
 #logout-btn {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
 }
 
 /* Styles pour le menu hamburger */
 #menu-toggle {
-    display: none;
+  display: none;
 }
 
 .menu-icon {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* Responsive Design */
 @media (max-width: 500px) {
-    .header-container {
-      flex-direction: column; /* Empiler les éléments verticalement */
-      align-items: center; /* Centrer horizontalement */
-      padding: 10px 20px;
-    }
-  
-    .menu-icon {
-      display: block;
-      font-size: 24px;
-      cursor: pointer;
-      margin-left: auto; 
-      margin-bottom: 10px; /* Ajouter un peu d'espace en dessous */
-    }
-  
-    nav ul {
-      display: none;
-      position: static; /* Retirer le positionnement absolu */
-      top: auto; 
-      right: auto;
-      width: auto; 
-      background-color: transparent; /* Retirer le fond */
-      z-index: auto;
-      flex-direction: column;
-      align-items: center;
-      transition: none; /* Retirer la transition */
-      transform: none; 
-    }
-  
-    #menu-toggle:checked ~ nav ul {
-      display: flex; 
-    }
-  
-    nav li {
-      margin: 10px 0;
-      width: 100%;
-      text-align: center;
-    }
-  
-    nav a,
-    .login-btn,
-    .signup-btn,
-    #logout-btn {
-      display: block;
-      width: 100%; /* Prendre toute la largeur */
-      text-align: center;
-      margin: 5px 0; 
-    }
+  .header-container {
+    flex-direction: column;
+    /* Empiler les éléments verticalement */
+    align-items: center;
+    /* Centrer horizontalement */
+    padding: 10px 20px;
   }
+
+  .menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: 10px;
+    /* Ajouter un peu d'espace en dessous */
+  }
+
+  nav ul {
+    display: none;
+    position: static;
+    /* Retirer le positionnement absolu */
+    top: auto;
+    right: auto;
+    width: auto;
+    background-color: transparent;
+    /* Retirer le fond */
+    z-index: auto;
+    flex-direction: column;
+    align-items: center;
+    transition: none;
+    /* Retirer la transition */
+    transform: none;
+  }
+
+  #menu-toggle:checked~nav ul {
+    display: flex;
+  }
+
+  nav li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a,
+  .login-btn,
+  .signup-btn,
+  #logout-btn {
+    display: block;
+    width: 100%;
+    /* Prendre toute la largeur */
+    text-align: center;
+    margin: 5px 0;
+  }
+}
 
 
 /* Styles pour la section Hero */
 #hero {
-    background-color: #f0f8ff;
-    padding: 100px 0;
-    text-align: center;
+  background-color: #f0f8ff;
+  /* padding: 100px 0; */
+  text-align: center;
 }
 
 #hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
 #search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 #search-form input,
 #search-form button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
 }
 
 #search-form input {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #search-form button {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: #666;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 /* Styles pour la section des offres d'emploi */
 #featured-jobs {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 .job-listings-all {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.job-listing-all {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.job-listing-all:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.job-listing-all h3 {
-    margin-top: 0;
-}
-
-.company,
-.location {
-    color: #666;
-    margin-bottom: 10px;
-
-}
-
-.apply-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 8px;
-}
-
-/* Styles pour la section de connexion (login) */
-#login {
-    padding: 80px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.login-form {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #666;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* Bouton d'appel à l'action pour la section de connexion */
-.cta-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #0056b3;
-}
-
-.signup-prompt {
-    margin-top: 20px;
-    color: #666;
-}
-
-.signup-prompt a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.signup-prompt a:hover {
-    text-decoration: underline;
-}
-
-/* Styles pour la section d'inscription (signup) */
-#signup {
-    padding: 80px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.signup-form {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.signup-form h2 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #666;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.login-prompt {
-    margin-top: 20px;
-    color: #666;
-}
-
-.login-prompt a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.login-prompt a:hover {
-    text-decoration: underline;
-}
-
-/* Styles pour le conteneur principal des offres d'emploi */
-/* Styles pour le conteneur principal des offres d'emploi */
-main {
-    padding: 80px 0;
-}
-
-.job-listings .container { /* Cibler le container spécifique à cette section */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
-#job-listings h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    /* 3rem au lieu de 50px pour plus de cohérence */
-    font-size: 2.5rem;
-    /* Taille de police en rem pour flexibilité */
-}
-
-.job-listing { /* Style pour chaque offre d'emploi */
+.job-listing-all {
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
@@ -381,300 +217,29 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.job-listing:hover {
-    transform: translateY(-0.3125rem);
-    /* 0.3125rem au lieu de 5px */
-    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
-    /* Valeurs en rem */
+.job-listing-all:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.job-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    /* Ajouté pour espacer les éléments */
-    gap: 1rem;
-    /* Espacement entre les éléments de l'en-tête */
-}
-
-.company-logo {
-    max-width: 6.25rem;
-    /* 100px en rem */
-    margin-right: 1.25rem;
-    /* 20px en rem */
-    flex-shrink: 0;
-}
-
-.job-details {
-    flex-grow: 1;
-}
-
-.job-details h2 {
-    margin-top: 0;
-}
-
-.job-meta {
-    display: flex;
-    gap: 1.25rem;
-    /* 20px en rem */
-    align-items: center;
-    align-content: space-between;
-    margin-bottom: 1.25rem;
-    /* 20px en rem */
+.job-listing-all h3 {
+  margin-top: 0;
 }
 
 .company,
-.location,
-.salary {
-    color: #666;
-}
+.location {
+  color: #666;
+  margin-bottom: 10px;
 
-.description {
-    margin: 1.25rem 0;
-    /* 20px en rem */
-    color: #444;
-    line-height: 1.6;
-    /* Amélioration de la lisibilité */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    /* Propriété standard non préfixée */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .apply-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    /* 8px 16px en rem */
-    border-radius: 0.3125rem;
-    /* 5px en rem */
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    margin-left: auto;
-    /* Aligné à droite */
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
 }
 
-.apply-btn:hover {
-    background-color: #0056b3;
-    /* Couleur légèrement plus sombre pour l'effet au survol */
-}
-
-
-
-
-
-
-
-
-/* Styles pour la section About */
-#about {
-    padding: 60px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.about-text {
-    max-width: 800px;
-}
-
-.about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.about-text .cta-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.about-text .cta-btn:hover {
-    background-color: #0056b3;
-}
-
-
-/* Styles pour le pied de page (footer) */
-footer {
-    background-color: #f8f8f8;
-    padding: 40px 0;
-    width: 100%;
-  }
-  
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column; 
-      align-items: center;
-      /* Éléments empilés verticalement */
-    }
-    .footer-section {
-      margin-bottom: 20px; /* Espace entre les sections */
-    }
-  
-    .footer-bottom {
-      flex-direction: column; /* Empiler les éléments verticalement */
-      align-items: center; /* Centrer les éléments */
-    }
-    
-    .social-icons {
-      margin-bottom: 10px; /* Espace entre les icônes et le copyright */
-    }
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px; /* Ajout d'un espace entre les colonnes */
-  }
-  
-  .footer-section {
-    flex: 1; 
-    min-width: 200px; /* Largeur minimale de chaque colonne */
-  }
-  
-  .footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-section ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-section ul li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .footer-section ul li a:hover {
-    color: #007bff;
-  }
-  
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Autoriser le retour à la ligne si nécessaire */
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-    margin-top: 20px;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .social-icons a {
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .social-icons a:hover {
-    color: #007bff;
-  }
-  
-  .footer-bottom p {
-    margin: 0;
-    color: #777;
-    font-size: 14px;
-  }
-
-  /* Styles pour la section Hero */
-#hero {
-    background-color: #f0f8ff;
-    padding: 80px 0; /* Un peu moins de padding sur les petits écrans */
-    text-align: center;
-  }
-  
-  #hero h1 {
-    font-size: 2.5rem; /* Taille de police plus petite sur les petits écrans */
-    margin-bottom: 20px;
-  }
-  
-  #search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap; /* Permettre le retour à la ligne des inputs */
-    gap: 10px;     /* Espace entre les inputs */
-  }
-  
-  #search-form input,
-  #search-form button {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    flex: 1;         /* Les inputs prennent toute la largeur disponible */
-    min-width: 150px; /* Largeur minimale pour les inputs */
-  }
-  
-  #search-form button {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem; /* Taille de police légèrement plus petite sur les petits écrans */
-    color: #666;
-  }
-  
-  /* Media Query pour les écrans plus petits */
-  @media (max-width: 768px) {
-    #hero {
-      padding: 60px 0; 
-    }
-  
-    #hero h1 {
-      font-size: 2rem; 
-    }
-    
-    #search-form input {
-      margin-right: 0; /* Retirer la marge droite sur les petits écrans */
-    }
-  }
-  
-
-  
 /* Styles pour la section de connexion (login) */
 #login {
   padding: 80px 0;
@@ -795,6 +360,428 @@ footer {
 .login-prompt a:hover {
   text-decoration: underline;
 }
+
+/* Styles pour le conteneur principal des offres d'emploi */
+/* Styles pour le conteneur principal des offres d'emploi */
+main {
+  padding-bottom: 30px;
+}
+
+.job-listings .container {
+  /* Cibler le container spécifique à cette section */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Grille responsive */
+  gap: 30px;
+}
+
+#job-listings h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  /* 3rem au lieu de 50px pour plus de cohérence */
+  font-size: 2.5rem;
+  /* Taille de police en rem pour flexibilité */
+}
+
+.job-listing {
+  /* Style pour chaque offre d'emploi */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-listing:hover {
+  transform: translateY(-0.3125rem);
+  /* 0.3125rem au lieu de 5px */
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
+  /* Valeurs en rem */
+}
+
+.job-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* Ajouté pour espacer les éléments */
+  gap: 1rem;
+  /* Espacement entre les éléments de l'en-tête */
+}
+
+.company-logo {
+  max-width: 6.25rem;
+  /* 100px en rem */
+  margin-right: 1.25rem;
+  /* 20px en rem */
+  flex-shrink: 0;
+}
+
+.job-details {
+  flex-grow: 1;
+}
+
+.job-details h2 {
+  margin-top: 0;
+}
+
+.job-meta {
+  display: flex;
+  gap: 1.25rem;
+  /* 20px en rem */
+  align-items: center;
+  align-content: space-between;
+  margin-bottom: 1.25rem;
+  /* 20px en rem */
+}
+
+.company,
+.location,
+.salary {
+  color: #666;
+}
+
+.description {
+  margin: 1.25rem 0;
+  /* 20px en rem */
+  color: #444;
+  line-height: 1.6;
+  /* Amélioration de la lisibilité */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  /* Propriété standard non préfixée */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.apply-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  /* 8px 16px en rem */
+  border-radius: 0.3125rem;
+  /* 5px en rem */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  /* Aligné à droite */
+}
+
+.apply-btn:hover {
+  background-color: #0056b3;
+  /* Couleur légèrement plus sombre pour l'effet au survol */
+}
+
+
+/* Styles pour la section About */
+#about {
+  padding: 20px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 800px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-text .cta-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.about-text .cta-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Styles pour le pied de page (footer) */
+footer {
+  background-color: #f8f8f8;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    /* Éléments empilés verticalement */
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    /* Espace entre les sections */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    /* Empiler les éléments verticalement */
+    align-items: center;
+    /* Centrer les éléments */
+  }
+
+  .social-icons {
+    margin-bottom: 10px;
+    /* Espace entre les icônes et le copyright */
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* Ajout d'un espace entre les colonnes */
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  /* Largeur minimale de chaque colonne */
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-section ul li a:hover {
+  color: #007bff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Autoriser le retour à la ligne si nécessaire */
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Styles pour la section Hero */
+#hero {
+  background-color: #f0f8ff;
+  padding: 30px 0;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  /* Taille de police plus petite sur les petits écrans */
+  margin-bottom: 20px;
+}
+
+#search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  /* Permettre le retour à la ligne des inputs */
+  gap: 10px;
+  /* Espace entre les inputs */
+}
+
+#search-form input,
+#search-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  flex: 1;
+  /* Les inputs prennent toute la largeur disponible */
+  min-width: 150px;
+  /* Largeur minimale pour les inputs */
+}
+
+#search-form button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  /* Taille de police légèrement plus petite sur les petits écrans */
+  color: #666;
+}
+
+/* Media Query pour les écrans plus petits */
+@media (max-width: 768px) {
+  #hero {
+    padding: 60px 0;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #search-form input {
+    margin-right: 0;
+    /* Retirer la marge droite sur les petits écrans */
+  }
+}
+
+
+
+/* Styles pour la section de connexion (login) */
+#login {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+
+/* Bouton d'appel à l'action pour la section de connexion */
+.cta-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+}
+
+.signup-prompt {
+  margin-top: 20px;
+  color: #666;
+}
+
+.signup-prompt a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Styles pour la section d'inscription (signup) */
+#signup {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.signup-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+
+.login-prompt {
+  margin-top: 20px;
+  color: #666;
+}
+
+.login-prompt a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
 /* Styles pour les groupes de champs (label + input/select) */
 .form-group {
   flex: 1 1 200px;
@@ -824,28 +811,6 @@ footer {
   border-color: #007bff;
   outline: none;
 }
-
-.filter-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.filter-btn:hover {
-  background-color: #0056b3;
-  transform: scale(1.02);
-}
-
-
 
 /*******************About ******************/
 
@@ -884,20 +849,21 @@ li {
 
 .about-container li::before {
   content: "\2022";
-  color: #007bff; 
+  color: #007bff;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-container {
-      padding: 10px;
+    padding: 10px;
   }
 
-  .about-container .section{
-      margin-bottom: 20px;
-      margin-left: 20px;
+  .about-container .section {
+    margin-bottom: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -968,9 +934,9 @@ li {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
+  margin-top: 0.3rem;
+
+ 
   justify-content: center;
   gap: 0.5rem;
 }
@@ -982,13 +948,13 @@ li {
 
 @media (min-width: 768px) {
   .filter-btn {
-      grid-column: span 2;
+    grid-column: span 2;
   }
 }
 
 @media (min-width: 1024px) {
   .filter-btn {
-      grid-column: span 3;
+    grid-column: span 3;
   }
 }
 
@@ -1095,29 +1061,9 @@ button.reopen-job-btn:hover {
   font-size: 1.8rem;
 }
 
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #666;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
 
 
 /* Styles pour le conteneur principal des offres d'emploi */
-main {
-  padding: 80px 0;
-}
 
 
 #job-listings h1 {
@@ -1216,6 +1162,7 @@ main {
   background-color: #0056b3;
   /* Couleur légèrement plus sombre pour l'effet au survol */
 }
+
 /* Styles pour la section des offres d'emploi */
 #featured-jobs {
   padding: 80px 0;
@@ -1257,6 +1204,7 @@ main {
   color: white;
   padding: 8px;
 }
+
 /* Styles pour la section des offres d'emploi */
 #job-listings {
   padding: 30px 0;
@@ -1264,11 +1212,12 @@ main {
 
 .job-listings .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Grille responsive */
   gap: 30px;
 }
 
-.job-listing { 
+.job-listing {
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
@@ -1312,8 +1261,8 @@ main {
 }
 
 .apply-btn:hover {
-  background-color:   
- #0056b3;
+  background-color:
+    #0056b3;
 }
 
 .description {
@@ -1321,30 +1270,40 @@ main {
 }
 
 /* Media Queries pour le responsive design */
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .job-listings .container {
-    grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    grid-template-columns: 1fr;
+    /* Une seule colonne sur les petits écrans */
   }
 
-  .job-header { 
-    flex-direction: column;  /* Empiler le titre et les métadonnées verticalement */
-    align-items: center;    /* Centrer les éléments horizontalement */
+  .job-header {
+    flex-direction: column;
+    /* Empiler le titre et les métadonnées verticalement */
+    align-items: center;
+    /* Centrer les éléments horizontalement */
     justify-content: center;
   }
 
   .job-header h2 {
-    margin-top: 10px;      /* Ajouter un espace entre le titre et les métadonnées */
+    margin-top: 10px;
+    /* Ajouter un espace entre le titre et les métadonnées */
     text-align: center;
   }
+
   .job-meta {
     display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center;     /* Center items horizontally */
+    flex-direction: column;
+    /* Arrange items vertically */
+    align-items: center;
+    /* Center items horizontally */
   }
+
   .apply-btn {
     /* ... other styles ... */
-    width: auto;           /* Allow the button to take its natural width */
-    margin: 0 auto;        /* Center the button horizontally */
+    width: auto;
+    /* Allow the button to take its natural width */
+    margin: 0 auto;
+    /* Center the button horizontally */
   }
 }
 

@@ -89,8 +89,10 @@ function displayPagination() {
     if (currentPage > 1) {
       currentPage--;
       fetchAndDisplayJobs(currentPage);
+      window.scrollTo(0, 0); // Remonte en haut de la page
     }
   });
+  
 
   paginationContainer.appendChild(prevButton);
 
@@ -109,6 +111,7 @@ function displayPagination() {
     if (currentPage < totalPages) {
       currentPage++;
       fetchAndDisplayJobs(currentPage);
+      window.scrollTo(0, 0); // Remonte en haut de la page
     }
   });
 

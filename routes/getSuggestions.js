@@ -2,7 +2,7 @@ const keywordsInput = document.getElementById('keywords');
 const suggestionsList = document.createElement('ul');
 suggestionsList.classList.add('suggestions-list');
 keywordsInput.parentNode.appendChild(suggestionsList);
-const apiUrl = 'https://linkworkv2.onrender.com/offres'; 
+
 
 keywordsInput.addEventListener('input', async () => {
   const keywords = keywordsInput.value;

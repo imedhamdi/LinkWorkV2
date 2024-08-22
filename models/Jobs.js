@@ -45,23 +45,7 @@ class Offre {
     }
   }
   
-  static async getSuggestions(keywords, limit) {
-    try {
-      const query = `
-        SELECT intitule 
-        FROM offres
-        WHERE intitule LIKE ? OR description LIKE ?
-        LIMIT ?
-      `;
-      const values = [`%${keywords}%`, `%${keywords}%`, limit];
 
-      const [rows] = await pool.query(query, values);
-      return rows; 
-    } catch (error) {
-      console.error('Erreur lors de la récupération des suggestions :', error);
-      throw error;
-    }
-  }
 
  // Méthode pour obtenir une offre par ID
  static async getById(id) {

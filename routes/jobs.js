@@ -28,6 +28,22 @@ const Offre = require('../models/Jobs');
   });
 
 
+// Nouvelle route pour les suggestions d'autocomplétion
+router.get('/suggestions', async (req, res) => {
+  try {
+    const keywords = req.query.keywords;
+    const limit = 5; // Ou ajustez selon vos besoins
+
+    const suggestions = await Offre.getSuggestions(keywords, limit);
+    res.json(suggestions);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des suggestions :', error);
+    res.status(500).json({ error:   
+ 'Erreur serveur' });
+  }
+});
+
+
   // Route pour récupérer une offre par ID
 router.get('/:id', async (req, res) => {
   try {

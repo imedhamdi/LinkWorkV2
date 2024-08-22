@@ -1332,7 +1332,7 @@ button.reopen-job-btn:hover {
 }
 
 
-.suggestions-list {
+/* .suggestions-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -1352,4 +1352,4 @@ button.reopen-job-btn:hover {
 
 .suggestions-list li.highlighted {
   background-color: #f0f0f0;
-}
+} */

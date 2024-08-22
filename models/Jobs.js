@@ -44,7 +44,6 @@ class Offre {
       throw error;
     }
   }
-  
 
 
  // Méthode pour obtenir une offre par ID

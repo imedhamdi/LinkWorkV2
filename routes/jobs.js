@@ -28,8 +28,6 @@ const Offre = require('../models/Jobs');
   });
 
 
-
-
   // Route pour récupérer une offre par ID
 router.get('/:id', async (req, res) => {
   try {

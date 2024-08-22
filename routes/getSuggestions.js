@@ -1,26 +1,32 @@
+// Sélection des éléments et création des composants nécessaires
 const keywordsInput = document.getElementById('keywords');
 const suggestionsList = document.createElement('ul');
 suggestionsList.classList.add('suggestions-list');
 keywordsInput.parentNode.appendChild(suggestionsList);
 
-let selectedIndex = -1;  // Index de la suggestion actuellement sélectionnée
-let debounceTimeout;  // Timeout pour le debouncing
+// Variables globales pour gérer l'état
+let selectedIndex = -1;
+let debounceTimeout;
 
+// Gestion de l'événement d'entrée de texte avec debouncing
 keywordsInput.addEventListener('input', () => {
   clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(() => {
-    const keywords = keywordsInput.value;
-    if (keywords.length >= 3) { // Déclencher l'autocomplétion après 3 lettres
-      fetchSuggestions(keywords);
-    } else {
-      clearSuggestions(); // Effacez les suggestions si moins de 3 lettres
-    }
-  }, 300); // Délai de 300ms avant d'appeler l'API
+  debounceTimeout = setTimeout(handleInput, 300);
 });
 
+function handleInput() {
+  const keywords = keywordsInput.value.trim();
+  if (keywords.length >= 3) {
+    fetchSuggestions(keywords);
+  } else {
+    clearSuggestions();
+  }
+}
+
+// Récupération des suggestions via l'API
 async function fetchSuggestions(keywords) {
   try {
-    const response = await fetch(`${apiUrl}/suggestions?keywords=${keywords}`);
+    const response = await fetch(`${apiUrl}/suggestions?keywords=${encodeURIComponent(keywords)}`);
     if (!response.ok) {
       throw new Error('Erreur lors de la récupération des suggestions');
     }
@@ -29,23 +35,22 @@ async function fetchSuggestions(keywords) {
     displaySuggestions(suggestions);
   } catch (error) {
     console.error('Erreur lors de l\'autocomplétion :', error);
-    // Gérez l'erreur de manière appropriée (par exemple, affichez un message d'erreur)
+    clearSuggestions();
+    // Affichage d'un message d'erreur ou autre gestion
   }
 }
 
+// Affichage des suggestions
 function displaySuggestions(suggestions) {
-  suggestionsList.innerHTML = '';
-  selectedIndex = -1;  // Réinitialiser l'index sélectionné
+  clearSuggestions();
+  selectedIndex = -1;
 
   suggestions.forEach((suggestion, index) => {
     const listItem = document.createElement('li');
-    listItem.textContent = suggestion.intitule;   
- 
+    listItem.textContent = suggestion.intitule;
+
     listItem.addEventListener('click', () => {
-      keywordsInput.value = suggestion.intitule;
-      clearSuggestions();
-      // Vous pouvez également déclencher la recherche ici si vous le souhaitez
-      // fetchAndDisplayJobs(); 
+      selectSuggestion(suggestion.intitule);
     });
 
     listItem.addEventListener('mouseover', () => {
@@ -58,43 +63,56 @@ function displaySuggestions(suggestions) {
   suggestionsList.style.display = 'block';
 }
 
+// Sélection d'une suggestion
+function selectSuggestion(suggestion) {
+  keywordsInput.value = suggestion;
+  clearSuggestions();
+  // Optionnel: déclencher la recherche ou autre action
+}
+
+// Effacement des suggestions
 function clearSuggestions() {
   suggestionsList.innerHTML = '';
   suggestionsList.style.display = 'none';
   selectedIndex = -1;
 }
 
+// Gestion du surlignage des suggestions
 function highlightSuggestion(index) {
-  // Enlever la classe 'highlighted' de toutes les suggestions
   const items = suggestionsList.querySelectorAll('li');
   items.forEach(item => item.classList.remove('highlighted'));
 
-  // Ajouter la classe 'highlighted' à la suggestion actuelle
   if (index >= 0 && index < items.length) {
     items[index].classList.add('highlighted');
     selectedIndex = index;
   }
 }
 
+// Gestion des interactions au clavier
 keywordsInput.addEventListener('keydown', (event) => {
   const items = suggestionsList.querySelectorAll('li');
 
-  if (event.key === 'ArrowDown') {
-    // Flèche vers le bas : passer à l'élément suivant
-    selectedIndex = (selectedIndex + 1) % items.length;
-    highlightSuggestion(selectedIndex);
-  } else if (event.key === 'ArrowUp') {
-    // Flèche vers le haut : passer à l'élément précédent
-    selectedIndex = (selectedIndex - 1 + items.length) % items.length;
-    highlightSuggestion(selectedIndex);
-  } else if (event.key === 'Enter') {
-    // Enter : sélectionner l'élément en surbrillance
-    if (selectedIndex >= 0 && selectedIndex < items.length) {
-      items[selectedIndex].click();
-      event.preventDefault(); // Empêcher la soumission du formulaire si Enter est pressé
-    }
-  } else if (event.key === 'Escape') {
-    // Echap : fermer les suggestions
-    clearSuggestions();
+  switch (event.key) {
+    case 'ArrowDown':
+      if (items.length > 0) {
+        selectedIndex = (selectedIndex + 1) % items.length;
+        highlightSuggestion(selectedIndex);
+      }
+      break;
+    case 'ArrowUp':
+      if (items.length > 0) {
+        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+        highlightSuggestion(selectedIndex);
+      }
+      break;
+    case 'Enter':
+      if (selectedIndex >= 0 && selectedIndex < items.length) {
+        items[selectedIndex].click();
+        event.preventDefault();
+      }
+      break;
+    case 'Escape':
+      clearSuggestions();
+      break;
   }
 });

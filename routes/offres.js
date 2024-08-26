@@ -119,3 +119,10 @@ function displayPagination() {
 }
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayJobs);
+document.querySelector('.contact-btn').addEventListener('click', function() {
+  var contactSection = document.querySelector('#contact-us');
+  
+  if (!contactSection.classList.contains('active')) {
+      contactSection.classList.add('active');
+  }
+});

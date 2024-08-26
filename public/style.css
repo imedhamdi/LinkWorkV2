@@ -1479,3 +1479,42 @@ button.reopen-job-btn:hover {
   display: block;
   opacity: 1;
 }
+
+
+#opportunities {
+  background-color: #f4f4f4;
+  padding: 50px 0;
+}
+
+.opportunities-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.opportunities-content img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.opportunities-text {
+  max-width: auto;
+}
+
+.opportunities-text h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.opportunities-text p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+
